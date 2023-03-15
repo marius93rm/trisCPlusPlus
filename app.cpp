@@ -8,14 +8,11 @@ using namespace std;
 // -1 per il pareggio
 int isWinner(char *arr)
 {
-
-    // tabella = [_,_,_,X,_,_,O,_,_]
-    // 
-    // _ _ _
-    // _ X _
-    // O _ _
+    int risultato=99;
     
-    return 0;
+    
+    
+    return risultato;
 }
 
 void stampa(char *a)
@@ -60,6 +57,7 @@ int main()
             cout << "Non puoi inserire qui" << endl;
             cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
             cin >> mossa;
+            mossa--;
         }
 
         // se sono arrivato qui è solo perchè l'utente ha inserito un numero corretto
