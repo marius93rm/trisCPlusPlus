@@ -8,6 +8,13 @@ using namespace std;
 // -1 per il pareggio
 int isWinner(char *arr)
 {
+
+    // tabella = [_,_,_,X,_,_,O,_,_]
+    // 
+    // _ _ _
+    // _ X _
+    // O _ _
+    
     return 0;
 }
 
@@ -28,7 +35,6 @@ void stampa(char *a)
 
 int main()
 {
-
     char vuoto = '_';
 
     // inizializzo la tabella
@@ -61,8 +67,7 @@ int main()
 
         stampa(tabella);
 
-
-        if(isWinner(tabella) == 1)
+        if(isWinner(tabella) == 1 )
         {
             cout << "Hai vinto " << (xIsNext ? 'X' : 'O') << endl;
             break;
