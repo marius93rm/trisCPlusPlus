@@ -2,6 +2,27 @@
 
 using namespace std;
 
+int mossaPensata(char *tab)
+{
+    /*
+
+    X _ O  _ X _   _ _ |
+    0 1 2  3 4 5   6 7 8
+
+    X _ O
+    _ X _
+    _ _ _
+
+    // giro per trovare le x
+    tab[0] == X
+    tab[4] == X
+
+    // giro
+
+
+    */
+}
+
 // 1 per la vittoria
 // 0 per continuare la partita
 // -1 per il pareggio
@@ -9,43 +30,39 @@ int isWinner(char *arr)
 {
     char vuoto = '_';
 
-    // _ _ _   _ _ _   _ _ _
-    // 0 1 2  3 4 5   6 74
+    int combinazioni[8][3] = {
+        {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8},
+        {0, 3, 6},
+        {1, 4, 7},
+        {2, 5, 8},
+        {0, 4, 8},
+        {2, 4, 6}
+    };
 
-    for (int i = 0; i < 9; i += 3)
+    for (int i = 0; i < 8; i++)
     {
-        if ((arr[i] == arr[i + 1]) && (arr[i + 1] == arr[i + 2]) && arr[i] != vuoto) // ho tre x vicine
+        int a = arr[combinazioni[i][0]];
+        int b = arr[combinazioni[i][1]];
+        int c = arr[combinazioni[i][2]];
+        if (a != vuoto && a == b && b == c)
         {
-            return 1; // hai vinto quindi 1
+            return 1;
         }
     }
 
-    for (int i = 0; i < 9; i++)
-    {
-        if ((arr[i] == arr[i + 3]) && (arr[i + 3] == arr[i + 6]) && arr[i] != vuoto) // ho tre x in colonna
-        {
-            return 1; // hai vinto quindi 1
-        }
-    }
-    // se li ho trovati in diagonale hai vinto =1
-    if ((arr[0] == arr[4] && arr[4] == arr[8]) && arr[0] != vuoto)
-    {
-        return 1;
-    }
-    if ((arr[2] == arr[4] && arr[4] == arr[6]) && arr[2] != vuoto)
-    {
-        return 1;
-    }
-    // // se non ho trovato nulla pareggio = -1
     for (int i = 0; i < 9; i++)
     {
         if (arr[i] == vuoto)
         {
-            return 0;
+            return 0; // c'è ancora spazio
         }
     }
-    // pareggio
+
     return -1;
+
+
 }
 
 void stampa(char *tabella)
@@ -58,7 +75,6 @@ void stampa(char *tabella)
             cout << endl;
         }
     }
-
 
     cout << endl;
     cout << endl;
@@ -84,16 +100,16 @@ int main()
 
         int mossa;
 
-        if (!xIsNext)
+        if (!xIsNext) // COMPUTER
         {
-            mossa = random() % 10;
+            mossa = mossaPensata(tabella);
 
-            while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9))) // controllo 2 condizioni (valido e vuoto)
-            {
-                mossa = random() % 10;
-            }
+            // while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9))) // controllo 2 condizioni (valido e vuoto)
+            // {
+            //     mossa = random() % 10;
+            // }
         }
-        else
+        else // UTENTE
         {
             cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
             cin >> mossa;
@@ -107,8 +123,6 @@ int main()
                 mossa--; // per capirci ;)
             }
         }
-
-        
 
         // se sono arrivato qui è solo perchè l'utente ha inserito un numero corretto
         xIsNext ? tabella[mossa] = 'X' : tabella[mossa] = 'O'; // se è vero metti X altrimenti metti O
