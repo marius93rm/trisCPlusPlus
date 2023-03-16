@@ -2,17 +2,6 @@
 
 using namespace std;
 
-/*
-
-    X _ O  _ X X   _ _ o
-    0 1 2  3 4 5   6 7 8
-
-    X _ O
-    _ X X
-    _ _ O
-
-*/
-
 void stampa(char *tab)
 {
     for (int i = 0; i < 9; i++)
@@ -42,11 +31,15 @@ int main()
     }
     stampa(tab);
 
+/*
+    X _ X
+    _ O _
+    _ _ _
+*/
+
     tab[0] = 'X';
-    tab[2] = 'O';
-    tab[4] = 'X';
-    tab[8] = 'O';
-    tab[5] = 'X';
+    tab[2] = 'X';
+    tab[4] = 'O';
 
     stampa(tab);
 
@@ -91,5 +84,5 @@ int main()
         }
     }
 
-    cout << "risultato ottenuto: " << risultato << " | risultato atteso: 3" << endl;
+    cout << "risultato ottenuto: " << risultato << " | risultato atteso: 1" << endl;
 }
