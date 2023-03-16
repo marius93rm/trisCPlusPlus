@@ -4,23 +4,7 @@ using namespace std;
 
 int mossaPensata(char *tab)
 {
-    /*
-
-    X _ O  _ X _   _ _ |
-    0 1 2  3 4 5   6 7 8
-
-    X _ O
-    _ X _
-    _ _ _
-
-    // giro per trovare le x
-    tab[0] == X
-    tab[4] == X
-
-    // giro
-
-
-    */
+    return -1;
 }
 
 // 1 per la vittoria
