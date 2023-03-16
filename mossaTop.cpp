@@ -21,13 +21,13 @@ void stampa(char *tab)
 int main()
 {
     int risultato = -1;
-    char vuoto = '_';
+    char VUOTO = '_';
 
     // inizializzo la tab
     char tab[9];
     for (int i = 0; i < 9; i++)
     {
-        tab[i] = vuoto;
+        tab[i] = VUOTO;
     }
     stampa(tab);
 
@@ -62,7 +62,7 @@ int main()
         char b = tab[combinazioni[i][1]];
         char c = tab[combinazioni[i][2]];
 
-        bool condizione = a == b && c == vuoto && a == 'X';
+        bool condizione = a == b && c == VUOTO && a == 'X';
 
         if (condizione)
         {
@@ -70,13 +70,15 @@ int main()
         }
     }
 
+
+
     for (int i = 0; i < 8; i++)
     {
         char a = tab[combinazioni[i][0]];
         char b = tab[combinazioni[i][1]];
         char c = tab[combinazioni[i][2]];
 
-        bool condizione = c == b && a == vuoto && c == 'X';
+        bool condizione = c == b && a == VUOTO && c == 'X';
 
         if (condizione)
         {
